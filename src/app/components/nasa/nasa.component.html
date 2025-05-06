@@ -1,0 +1,43 @@
+<div class="nasa-container">
+  <h2>Image du jour de la NASA</h2>
+
+  <div class="date-selector">
+    <input 
+      type="date" 
+      [(ngModel)]="selectedDate" 
+      (change)="loadImageByDate()"
+      [max]="today"
+    >
+    <button (click)="loadImageOfTheDay()">Image du jour</button>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Chargement en cours...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error && imageOfTheDay" class="image-container">
+    <h3>{{ imageOfTheDay.title }}</h3>
+    <p class="date">{{ imageOfTheDay.date | date:'longDate' }}</p>
+    
+    <div *ngIf="imageOfTheDay.media_type === 'image'" class="image-wrapper">
+      <img [src]="imageOfTheDay.url" [alt]="imageOfTheDay.title">
+      <a [href]="imageOfTheDay.hdurl" target="_blank" class="hd-link">
+        Voir en haute résolution
+      </a>
+    </div>
+
+    <div *ngIf="imageOfTheDay.media_type === 'video'" class="video-wrapper">
+      <iframe 
+        [src]="imageOfTheDay.url | safe" 
+        frameborder="0" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <p class="explanation">{{ imageOfTheDay.explanation }}</p>
+  </div>
+</div> 
