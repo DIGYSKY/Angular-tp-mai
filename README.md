@@ -1,59 +1,108 @@
-# TPAngular
+# TP Angular - Application Multi-Fonctionnalités
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+Cette application Angular est un projet complet qui intègre plusieurs fonctionnalités intéressantes, notamment l'authentification, l'API Rick & Morty, et l'API NASA.
 
-## Development server
+## Fonctionnalités
 
-To start a local development server, run:
+- **Authentification**
+  - Système de login/logout
+  - Protection des routes
+  - Gestion des tokens JWT
+  - Utilisateurs par défaut :
+    - Username: `admin` / Password: `admin`
+    - Username: `user` / Password: `user`
 
+- **Rick & Morty**
+  - Liste des personnages
+  - Pagination
+  - Détails des personnages
+  - Interface responsive
+
+- **NASA APOD (Astronomy Picture of the Day)**
+  - Image du jour
+  - Sélection par date
+  - Support des images et vidéos
+  - Explications détaillées
+  - Liens vers les versions haute résolution
+
+## Prérequis
+
+- Node.js (version recommandée : 18.x ou supérieure)
+- npm ou pnpm
+- Une clé API NASA (obtenue sur [api.nasa.gov](https://api.nasa.gov))
+
+## Installation
+
+1. Cloner le repository :
+```bash
+git clone [URL_DU_REPO]
+cd TP-angular
+```
+
+2. Installer les dépendances :
+```bash
+npm install
+# ou
+pnpm install
+```
+
+3. Configurer la clé API NASA :
+   - Ouvrir `src/app/services/nasa.service.ts`
+   - Remplacer `YOUR_API_KEY` par votre clé API NASA
+
+4. Lancer l'application :
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+5. Ouvrir votre navigateur à l'adresse `http://localhost:4200`
 
-## Code scaffolding
+## Structure du Projet
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── about/
+│   │   ├── home/
+│   │   ├── login/
+│   │   ├── nasa/
+│   │   └── rick-morty/
+│   ├── core/
+│   │   ├── guards/
+│   │   ├── interceptors/
+│   │   └── services/
+│   ├── pipes/
+│   └── services/
+└── environments/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Routes Protégées
 
+Les routes suivantes nécessitent une authentification :
+- `/rick-morty`
+- `/nasa`
+
+## Développement
+
+Pour générer un nouveau composant :
 ```bash
-ng generate --help
+ng generate component components/nom-du-composant
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+Pour exécuter les tests :
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## Technologies Utilisées
 
-For end-to-end (e2e) testing, run:
+- Angular 19
+- RxJS
+- Angular Router
+- Angular Forms
+- Angular HTTP Client
 
-```bash
-ng e2e
-```
+## Licence
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Ce projet est sous licence MIT.
