@@ -17,7 +17,7 @@ export interface NasaImage {
   providedIn: 'root'
 })
 export class NasaService {
-  private apiKey = 'YOUR_API_KEY';
+  private apiKey = '6uTqbxDgJtnBYB4Mm78hEPJScieZmhKnbAhgk4Rs';
   private baseUrl = 'https://api.nasa.gov/planetary/apod';
 
   constructor(private http: HttpClient) {}

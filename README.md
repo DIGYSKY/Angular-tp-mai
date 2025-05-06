@@ -105,4 +105,4 @@ ng test
 
 ## Licence
 
-Ce projet est sous licence MIT.
+Ce projet est sous licence GNU General Public License version 3. Pour plus de détails, veuillez consulter le fichier [LICENSE](./LICENSE) dans le répertoire racine du projet.
