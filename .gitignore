@@ -10,6 +10,9 @@
 /node_modules
 npm-debug.log
 yarn-error.log
+package-lock.json
+pnpm-lock.yaml
+tp-angular-19-mai-2025-webdevoo-formation.pdf
 
 # IDEs and editors
 .idea/
