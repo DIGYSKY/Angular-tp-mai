@@ -1,0 +1,39 @@
+<div class="rick-morty-container">
+  <h2>Personnages de Rick and Morty</h2>
+
+  <div *ngIf="loading" class="loading">
+    Chargement en cours...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error" class="characters-grid">
+    <div *ngFor="let character of characters" class="character-card">
+      <img [src]="character.image" [alt]="character.name">
+      <div class="character-info">
+        <h3>{{ character.name }}</h3>
+        <p><strong>Status:</strong> {{ character.status }}</p>
+        <p><strong>Espèce:</strong> {{ character.species }}</p>
+        <p><strong>Origine:</strong> {{ character.origin.name }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button 
+      (click)="previousPage()" 
+      [disabled]="currentPage === 1"
+      class="pagination-btn">
+      Précédent
+    </button>
+    <span class="page-info">Page {{ currentPage }} sur {{ totalPages }}</span>
+    <button 
+      (click)="nextPage()" 
+      [disabled]="currentPage === totalPages"
+      class="pagination-btn">
+      Suivant
+    </button>
+  </div>
+</div> 
